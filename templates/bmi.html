@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<!--BMI Page-->
+<body>
+  <center>
+    <h2>BMI Calculator</h2>
+    <form id="bmi-form">
+      
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" step="0.1" required>
+      
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" required>
+      
+      <button type="submit">Calculate BMI</button>
+    </form>
+    
+    <div id="bmi-result"></div>
+    
+    <script>
+      const bmiForm = document.getElementById('bmi-form');
+      const bmiResultDiv = document.getElementById('bmi-result');
+      
+      bmiForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value) / 100; 
+        
+        const bmi = weight / (height * height);
+        
+        bmiResultDiv.innerHTML = `Your BMI is: ${bmi.toFixed(2)}`;
+      });
+    </script>
+    
+<br>
+    <!--Back to Main Page-->
+    <a href="/"><button>Main</button></a>
+    <a href="/lic"><button>Licenses & Certification</button></a>
+    <a href="/exp"><button>Experience</button></a>
+    <a href="/skill"><button>Skills</button></a>
+    <a href="/weather"><button>Weather</button></a>
+    
+  </center>
+  <script src="script.js"></script>
+
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>
